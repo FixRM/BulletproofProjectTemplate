@@ -1,6 +1,6 @@
 {
   "name": "bpt",
-  "version": "1.0.0",
+  "version": "0.1.1",
   "description": "Bulletproof Project Template",
   "repository": "https://github.com/FixRM/BulletproofProjectTemplate",
   "author": "Artem Grunin",
@@ -17,16 +17,15 @@
     "standard-version": "^7.1.0"
   },
   "scripts": {
-    "set-semversion": "standard-version",
-    "get-semversion": "node app.js",
-    "git-cz": "git-cz"
+    "git-cz": "git-cz",
+    "release": "standard-version"
   },
   "standard-version": {
     "skip": {
       "bump": false,
       "changelog": false,
       "commit": false,
-      "tag": false
+      "tag": true
     }
   },
   "husky": {
