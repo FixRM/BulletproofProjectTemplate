@@ -1,0 +1,42 @@
+{
+  "name": "bpt",
+  "version": "1.0.0",
+  "description": "Bulletproof Project Template",
+  "repository": "https://github.com/FixRM/BulletproofProjectTemplate",
+  "author": "Artem Grunin",
+  "license": "MIT",
+  "dependencies": {
+    "azure-pipelines-task-lib": "^2.9.3"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "commitizen": "^4.0.3",
+    "cz-conventional-changelog": "^3.0.2",
+    "husky": "^4.0.10",
+    "standard-version": "^7.1.0"
+  },
+  "scripts": {
+    "set-semversion": "standard-version",
+    "get-semversion": "node app.js",
+    "git-cz": "git-cz"
+  },
+  "standard-version": {
+    "skip": {
+      "bump": false,
+      "changelog": false,
+      "commit": false,
+      "tag": false
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  }
+}
