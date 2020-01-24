@@ -1,0 +1,39 @@
+{
+  "name": "bpt",
+  "version": "0.1.0",
+  "description": "Bulletproof Project Template",
+  "repository": "https://github.com/FixRM/BulletproofProjectTemplate",
+  "author": "Artem Grunin",
+  "license": "MIT",
+  "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "commitizen": "^4.0.3",
+    "cz-conventional-changelog": "^3.0.2",
+    "husky": "^4.0.10",
+    "standard-version": "^7.1.0"
+  },
+  "scripts": {
+    "git-cz": "git-cz",
+    "release": "standard-version"
+  },
+  "standard-version": {
+    "header": "# What's new\n\nBulletproof D365/Power Apps project template by [Artem Grunin](https://fixrm.wordpress.com). See [this post](https://fixrm.wordpress.com/2020/01/20/bulletproof-project-template-part-1-intro) for guidelines\n\n",
+    "skip": {
+      "bump": false,
+      "changelog": false,
+      "commit": false,
+      "tag": false
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  }
+}
