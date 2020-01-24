@@ -1,6 +1,6 @@
 # Bulletproof D365/Power Apps Project Template
 
-This is demo repository for a [blog series](https://fixrm.wordpress.com/2020/01/20/bulletproof-project-template-part-1-intro) focusing my personal experience of setting up good DevOps practice for D365/Power Apps project.
+This is demo repository for a [blog series](https://fixrm.wordpress.com/2020/01/20/bulletproof-project-template-part-1-intro) focusing on my personal experience of setting up good DevOps practice for D365/Power Apps project.
 
 ## Solution level setup
 
