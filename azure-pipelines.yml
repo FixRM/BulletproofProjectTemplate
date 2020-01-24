@@ -1,0 +1,20 @@
+# Bulletproof Project Template build pipeline
+
+trigger:
+  tags:
+    include:
+      - v*
+
+pool:
+  vmImage: 'windows-latest'
+
+steps:
+- task: NodeTool@0
+  inputs:2
+    versionSpec: '10.x'
+  displayName: 'Install Node.js'
+
+- script: |
+    npm install --production
+    node ./azure-pipeline/read-version.js
+  displayName: 'set SemVer variable'
