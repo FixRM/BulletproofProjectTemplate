@@ -1,7 +1,12 @@
-//print package version
+const devops = require("azure-pipelines-task-lib");
 const pack = require("../package.json");
-console.log(`package version ${pack.version}`);
+
+const version = pack.version;
+//print package version
+console.log(`package version ${version}`);
 
 //set output variable
-const devops = require("azure-pipelines-task-lib");
-devops.setVariable("SemVersion", pack.version);
+devops.setVariable("SemVer", version);
+
+//try to change build number
+devops.updateBuildNumber(`${version}$(Rev:rr)`);
