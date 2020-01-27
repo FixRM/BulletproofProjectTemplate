@@ -23,5 +23,5 @@ steps:
 - task: CmdLine@2
   inputs:
     script: |
-      echo $(SemVersion);
-      echo $(BuildNumber);
+      echo '$(SemVersion)'
+      echo '$(BuildNumber)'
