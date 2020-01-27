@@ -19,3 +19,9 @@ steps:
     npm install --production
     node ./azure-pipeline/read-version.js
   displayName: 'set SemVer variable'
+
+- task: CmdLine@2
+  inputs:
+    script: |
+      echo $(SemVersion);
+      echo $(BuildNumber);
