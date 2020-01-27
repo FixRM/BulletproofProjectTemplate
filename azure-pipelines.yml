@@ -9,13 +9,17 @@ pool:
   vmImage: 'windows-latest'
 
 steps:
-
-- task: NodeTool@0
+- task: Npm@1
   inputs:
-    versionSpec: '10.x'
-  displayName: 'Install Node.js'
+    command: 'custom'
+    customCommand: 'install --production'
+  displayName: 'npm install --production'
 
-- script: |
-    npm install --production
-    node ./azure-pipeline/read-version.js
-  displayName: 'set SemVer variable'
+- task: Npm@1
+  inputs:
+    command: 'custom'
+    customCommand: 'run read-version'
+  displayName: 'run read-version'
+
+- script:
+    echo '$(SemVersion)'    

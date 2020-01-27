@@ -3,9 +3,9 @@ const pack = require("../package.json");
 
 const version = pack.version;
 //print package version
-console.log(`package version ${version}`);
+console.log(`package version ${version}`);
 
-//set output variable
+//set variable
 devops.setVariable("SemVer", version);
 
 //try to change build number

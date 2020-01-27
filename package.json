@@ -18,7 +18,8 @@
   },
   "scripts": {
     "git-cz": "git-cz",
-    "release": "standard-version"
+    "release": "standard-version",
+    "read-version": "node ./azure-pipelines/read-version.js"
   },
   "standard-version": {
     "header": "# What's new\n\nBulletproof D365/Power Apps project template by [Artem Grunin](https://fixrm.wordpress.com). See [this post](https://fixrm.wordpress.com/2020/01/20/bulletproof-project-template-part-1-intro) for guidelines\n\n",
