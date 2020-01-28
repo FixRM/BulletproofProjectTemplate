@@ -7,6 +7,3 @@ console.log(`package version ${version}`);
 
 //set variable
 devops.setVariable("SemVer", version);
-
-//try to change build number
-devops.updateBuildNumber(`${version}$(Rev:rr)`);

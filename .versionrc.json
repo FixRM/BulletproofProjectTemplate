@@ -1,0 +1,15 @@
+{
+  "header": "# What's new!!!\n\nBulletproof D365/Power Apps project template by [Artem Grunin](https://fixrm.wordpress.com). See [this post](https://fixrm.wordpress.com/2020/01/20/bulletproof-project-template-part-1-intro) for guidelines\n\n",
+  "skip": {
+    "bump": false,
+    "changelog": true,
+    "commit": true,
+    "tag": true
+  },
+  "bumpFiles": [
+    {
+      "filename": "azure-pipelines.yml",
+      "updater": "./azure-pipelines/azure-pipeline-updater.js"
+    }
+  ]
+}

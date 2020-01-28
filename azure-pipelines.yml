@@ -1,4 +1,6 @@
 # Bulletproof Project Template build pipeline
+variables:
+  semver: 0.1.0
 
 trigger:
   tags:
