@@ -2,26 +2,17 @@
 variables:
   semver: 0.1.0
 
+# Build Number
+name: $(semver)$(Rev:.r)
+
+# Should only trigger master branch or PR's
 trigger:
-  tags:
-    include:
-      - v*
+  - master
 
 pool:
   vmImage: 'windows-latest'
 
 steps:
-- task: Npm@1
-  inputs:
-    command: 'custom'
-    customCommand: 'install --production'
-  displayName: 'npm install --production'
-
-- task: Npm@1
-  inputs:
-    command: 'custom'
-    customCommand: 'run read-version'
-  displayName: 'run read-version'
 
 - script:
-    echo '$(SemVersion)'    
+    echo '$(BUILD_NUMBER)'
