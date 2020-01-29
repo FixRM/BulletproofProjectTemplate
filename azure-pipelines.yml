@@ -15,4 +15,4 @@ pool:
 steps:
 
 - script:
-    echo '$(BUILD_NUMBER)'
+    echo '$(Build.BuildNumber)'
