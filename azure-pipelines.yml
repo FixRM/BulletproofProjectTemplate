@@ -1,6 +1,6 @@
 # Bulletproof Project Template build pipeline
 variables:
-  semver: 0.1.0
+  semver: 0.1.1
 
 # Build Number
 name: $(semver)$(Rev:.r)
