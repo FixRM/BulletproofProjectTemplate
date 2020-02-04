@@ -1,0 +1,18 @@
+# Bulletproof Project Template build pipeline
+variables:
+  semver: 0.1.0
+
+# Build Number
+name: $(semver)$(Rev:.r)
+
+# Should only trigger master branch or PR's
+trigger:
+  - master
+
+pool:
+  vmImage: 'windows-latest'
+
+steps:
+
+- script:
+    echo '$(Build.BuildNumber)'
