@@ -334,3 +334,6 @@ ASALocalRun/
 
 # splk logs
 **/spkl/Log*.txt
+
+# solution zip files
+/Solutions/*.zip
