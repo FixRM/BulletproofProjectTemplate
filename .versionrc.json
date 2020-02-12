@@ -15,6 +15,10 @@
     {
       "filename": "azure-pipelines.yml",
       "updater": "./azure-pipelines/azure-pipeline-updater.js"
+    },
+    {
+      "filename": "./Solutions/BulletproofProjectTemplate/Other/Solution.xml",
+      "updater": "./azure-pipelines/solution-updater.js"
     }
   ]
 }
