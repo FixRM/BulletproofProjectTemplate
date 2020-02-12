@@ -16,3 +16,22 @@ steps:
 
 - script:
     echo '$(Build.BuildNumber)'
+
+- task: BatchScript@1
+  displayName: 'Run spkl pack'
+  inputs:
+    filename: 'BulletproofProjectTemplate/Solutions/spkl/pack.bat'
+    workingFolder: BulletproofProjectTemplate/Solutions/spkl
+
+- task: CopyFiles@2
+  displayName: 'Copy Build Artifacts'
+  inputs:
+    SourceFolder: '$(system.defaultworkingdirectory)'
+    Contents: 'BulletproofProjectTemplate\Solutions\*.zip'
+    TargetFolder: '$(build.artifactstagingdirectory)'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Solution Artifacts'
+  inputs:
+    PathtoPublish: '$(build.artifactstagingdirectory)'
+    ArtifactName: Solutions
