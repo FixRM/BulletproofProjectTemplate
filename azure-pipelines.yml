@@ -26,8 +26,8 @@ steps:
 - task: BatchScript@1
   displayName: 'Run spkl pack'
   inputs:
-    filename: 'Solutions/spkl/pack.bat'
-    workingFolder: 'Solutions/spkl'
+    filename: Solutions/spkl/pack.bat
+    workingFolder: Solutions/spkl
 
 - task: CopyFiles@2
   displayName: 'Copy Build Artifacts'
