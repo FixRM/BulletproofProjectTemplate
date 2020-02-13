@@ -20,14 +20,13 @@ steps:
 - task: BatchScript@1
   displayName: 'Run spkl pack'
   inputs:
-    filename: 'BulletproofProjectTemplate/Solutions/spkl/pack.bat'
-    workingFolder: BulletproofProjectTemplate/Solutions/spkl
+    filename: 'Solutions/spkl/pack.bat'
 
 - task: CopyFiles@2
   displayName: 'Copy Build Artifacts'
   inputs:
     SourceFolder: '$(system.defaultworkingdirectory)'
-    Contents: 'BulletproofProjectTemplate\Solutions\*.zip'
+    Contents: 'Solutions/*.zip'
     TargetFolder: '$(build.artifactstagingdirectory)'
 
 - task: PublishBuildArtifacts@1
