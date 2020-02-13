@@ -20,7 +20,7 @@ steps:
 - task: NuGetCommand@2
   displayName: 'NuGet restore'
   inputs:
-    restoreSolution: 'Solutions/packages.config'
+    restoreSolution: '**/*.sln'
     restoreDirectory: '../packages'
 
 - task: BatchScript@1
