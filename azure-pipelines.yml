@@ -27,7 +27,7 @@ steps:
   displayName: 'Run spkl pack'
   inputs:
     filename: Solutions/spkl/pack.bat
-    arguments: '/path:Solutions'
+    arguments: 'Solutions'
 
 - task: CopyFiles@2
   displayName: 'Copy Build Artifacts'
