@@ -17,6 +17,11 @@ steps:
 - script:
     echo '$(Build.BuildNumber)'
 
+- task: NuGetCommand@2
+  displayName: 'NuGet restore'
+  inputs:
+    restoreSolution: 'Solutions/packages.config'
+
 - task: BatchScript@1
   displayName: 'Run spkl pack'
   inputs:
