@@ -331,3 +331,9 @@ ASALocalRun/
 
 # azure-pipelines-task-lib junk
 .taskkey
+
+# splk logs
+**/spkl/Log*.txt
+
+# solution zip files
+/Solutions/*.zip

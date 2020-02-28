@@ -16,3 +16,28 @@ steps:
 
 - script:
     echo '$(Build.BuildNumber)'
+
+- task: NuGetCommand@2
+  displayName: 'NuGet restore'
+  inputs:
+    restoreSolution: 'Solutions/packages.config'
+    restoreDirectory: '../packages'
+
+- task: BatchScript@1
+  displayName: 'Run spkl pack'
+  inputs:
+    filename: 'Solutions/spkl/pack.bat'
+    workingFolder: 'Solutions/spkl'
+
+- task: CopyFiles@2
+  displayName: 'Copy Build Artifacts'
+  inputs:
+    SourceFolder: '$(system.defaultworkingdirectory)'
+    Contents: 'Solutions/*.zip'
+    TargetFolder: '$(build.artifactstagingdirectory)'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Solution Artifacts'
+  inputs:
+    PathtoPublish: '$(build.artifactstagingdirectory)'
+    ArtifactName: Solutions
