@@ -3,6 +3,13 @@
 Bulletproof D365/Power Apps project template by [Artem Grunin](https://fixrm.wordpress.com). See [this post](https://fixrm.wordpress.com/2020/01/20/bulletproof-project-template-part-1-intro) for guidelines
 
 
+### [0.1.2](https://github.com/FixRM/BulletproofProjectTemplate/compare/v0.1.1...v0.1.2) (2020-02-28)
+
+
+### Features
+
+* add customizations project ([500dd53](https://github.com/FixRM/BulletproofProjectTemplate/commit/500dd531e48c47daabd4affa59ddecfd23d8b618))
+
 ### [0.1.1](https://github.com/FixRM/BulletproofProjectTemplate/compare/v0.1.0...v0.1.1) (2020-02-04)
 
 
