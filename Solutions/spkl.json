@@ -9,6 +9,11 @@
       "increment_on_import": false,
       "map": [
         {
+          "map": "file",
+          "from": "PluginAssemblies\\**\\FixRMPlugins.dll",
+          "to": "..\\..\\Plugins\\bin\\**\\FixRM.Plugins.dll"
+        },
+        {
           "map": "path",
           "from": "PluginAssemblies\\**\\*.*",
           "to": "..\\..\\Plugins\\bin\\**"
