@@ -17,7 +17,7 @@ pool:
 
 steps:
 
-- # Build Plugins and Workflow projects
+  # Build Plugins and Workflow projects
 - task: NuGetCommand@2
   displayName: 'NuGet restore solution packages'
   inputs:
@@ -37,7 +37,7 @@ steps:
     configuration: '$(buildConfiguration)'
     codeCoverageEnabled: true
 
-- # Pack CDS solution file
+  # Pack CDS solution file
 - task: NuGetCommand@2
   displayName: 'NuGet restore Solution folder packages'
   inputs:
