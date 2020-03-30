@@ -1,8 +1,8 @@
+@echo off
 REM use one of the following commands to ensure that project was built and repacked before publishing
 REM msbuild.exe "..\Plugins.csproj"
 REM devenv "..\..\BulletproofProjectTemplate.sln" /Rebuild Debug /Project "..\Plugins.csproj" /projectconfig Debug
 
-@echo off
 set package_root=..\..\
 REM Find the spkl in the package folder (irrespective of version)
 For /R %package_root% %%G IN (spkl.exe) do (
