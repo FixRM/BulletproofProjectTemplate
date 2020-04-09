@@ -15,7 +15,7 @@
       "generateGlobalOptionsets": false,
       "filename": "EarlyBound/EarlyBoundTypes.cs",
       "oneTypePerFile": false,
-      "classNamespace": "FixRM.Plugins",
+      "classNamespace": "FixRM.Plugins.EarlyBound",
       "serviceContextName": "XrmSvc"
     }
   ]
