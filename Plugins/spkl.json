@@ -1,0 +1,22 @@
+{
+  "plugins": [
+    {
+      "profile": "default,BPT",
+      "assemblypath": "bin\\Debug"
+      //"classRegex": "((public( sealed)? class (?'class'[\\w]*)[\\W]*?)((?'plugin':[\\W]*?((IPlugin)|(PluginBase)|(Plugin)))|(?'wf':[\\W]*?CodeActivity)))"
+    }
+  ],
+  "earlyboundtypes": [
+    {
+      "entities": "account",
+      "actions": "",
+      "generateOptionsetEnums": false,
+      "generateStateEnums": false,
+      "generateGlobalOptionsets": false,
+      "filename": "EarlyBound/EarlyBoundTypes.cs",
+      "oneTypePerFile": false,
+      "classNamespace": "FixRM.Plugins.EarlyBound",
+      "serviceContextName": "XrmSvc"
+    }
+  ]
+}

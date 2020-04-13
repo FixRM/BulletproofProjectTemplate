@@ -1,6 +1,9 @@
 # Bulletproof Project Template build pipeline
 variables:
   semver: 0.1.2
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
 
 # Build Number
 name: $(semver)$(Rev:.r)
@@ -14,11 +17,30 @@ pool:
 
 steps:
 
-- script:
-    echo '$(Build.BuildNumber)'
-
+  # Build Plugins and Workflow projects
 - task: NuGetCommand@2
-  displayName: 'NuGet restore'
+  displayName: 'NuGet restore solution packages'
+  inputs:
+    restoreSolution: '$(solution)'
+
+- task: VSBuild@1
+  displayName: 'Build Plugins and Workflow projects'
+  inputs:
+    solution: '$(solution)'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+- task: VSTest@2
+  displayName: 'Test Plugins and Workflow projects'
+  inputs:
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+    codeCoverageEnabled: true
+    runSettingsFile: '.runsettings'
+
+  # Pack CDS solution file
+- task: NuGetCommand@2
+  displayName: 'NuGet restore Solution folder packages'
   inputs:
     restoreSolution: 'Solutions/packages.config'
     restoreDirectory: '../packages'
@@ -29,6 +51,7 @@ steps:
     filename: 'Solutions/spkl/pack.bat'
     workingFolder: 'Solutions/spkl'
 
+  # Publish build output
 - task: CopyFiles@2
   displayName: 'Copy Build Artifacts'
   inputs:
