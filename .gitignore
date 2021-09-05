@@ -337,3 +337,6 @@ ASALocalRun/
 
 # solution zip files
 /Solutions/*.zip
+
+# WebPack output folder
+/WebResources/build
