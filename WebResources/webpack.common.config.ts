@@ -6,11 +6,25 @@ import { CleanWebpackPlugin } from "clean-webpack-plugin";
 import path from "path";
 
 const common: Configuration = {
-    entry: "./src/index.tsx",
+    entry: {
+        page1: "./src/pages/page1.tsx",
+        page2: "./src/pages/page1.tsx",
+        main: "./src/main.ts",
+    },
     output: {
-        path: path.resolve(__dirname, "build"),
+        path: path.resolve(__dirname, "public"),
         filename: "[name].js",
         publicPath: "",
+        library: "FixRM"
+    },
+    optimization: {
+        splitChunks: {
+            chunks(chunk) {
+                // exclude `main`
+                return chunk.name !== "main";
+            },
+            name: "shared"
+        },
     },
     module: {
         rules: [
@@ -32,7 +46,14 @@ const common: Configuration = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: "src/index.html",
+            template: "src/pages/page1.html",
+            filename: "page1.html",
+            excludeChunks: ["main"]
+        }),
+        new HtmlWebpackPlugin({
+            template: "src/pages/page2.html",
+            filename: "page2.html",
+            excludeChunks: ["main"]
         }),
         new ForkTsCheckerWebpackPlugin({
             async: false

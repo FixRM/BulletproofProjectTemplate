@@ -339,4 +339,4 @@ ASALocalRun/
 /Solutions/*.zip
 
 # WebPack output folder
-/WebResources/build
+/WebResources/public
