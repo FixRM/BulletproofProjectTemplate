@@ -1,16 +1,40 @@
-﻿import { Configuration, HotModuleReplacementPlugin } from "webpack";
-import HtmlWebpackPlugin from "html-webpack-plugin";
+﻿import { Configuration } from "webpack";
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import ESLintPlugin from "eslint-webpack-plugin";
 import { CleanWebpackPlugin } from "clean-webpack-plugin";
+import HtmlWebpackPlugin from "html-webpack-plugin";
 import path from "path";
 
-const common: Configuration = {
-    entry: {
-        page1: "./src/pages/page1.tsx",
-        page2: "./src/pages/page1.tsx",
-        main: "./src/main.ts",
+import { pages } from "./pages";
+
+/*
+ * This is entry point for entire project build
+ * Our output consists of HTML web resources that are generated from "pages"
+ * and form/ribbon scripts bundle
+ */
+const entry = pages.reduce<{ [index: string]: string }>(
+    (config, page) => {
+        config[page] = `./src/pages/${page}.tsx`;
+        return config
     },
+    {
+        "main": "./src/main.ts"
+    }
+);
+
+/*
+ * This set of plugins is requred to generate html file for each page
+ */
+const htmlPlugins = pages.map((page) => {
+    return new HtmlWebpackPlugin({
+        template: `./src/pages/${page}.html`,
+        filename: `${page}.html`,
+        excludeChunks: ["main"]
+    })
+});
+
+const common: Configuration = {
+    entry: entry,
     output: {
         path: path.resolve(__dirname, "public"),
         filename: "[name].js",
@@ -45,23 +69,14 @@ const common: Configuration = {
         ],
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            template: "src/pages/page1.html",
-            filename: "page1.html",
-            excludeChunks: ["main"]
-        }),
-        new HtmlWebpackPlugin({
-            template: "src/pages/page2.html",
-            filename: "page2.html",
-            excludeChunks: ["main"]
-        }),
         new ForkTsCheckerWebpackPlugin({
             async: false
         }),
         new ESLintPlugin({
             extensions: ["js", "jsx", "ts", "tsx"],
         }),
-        new CleanWebpackPlugin()
+        new CleanWebpackPlugin(),
+        ...htmlPlugins
     ]
 };
 
