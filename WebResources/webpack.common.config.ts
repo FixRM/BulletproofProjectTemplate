@@ -22,7 +22,7 @@ const entry = pages.reduce<{ [index: string]: string }>(
 );
 
 /*
- * This set of plugins is requred to generate html file for each page
+ * This set of plugins is required to generate html file for each page
  */
 const htmlPlugins = pages.map((page) => {
     return new HtmlWebpackPlugin({
@@ -54,17 +54,8 @@ const common: Configuration = {
             {
                 test: /\.(ts|js)x?$/i,
                 exclude: /node_modules/,
-                use: {
-                    loader: "babel-loader",
-                    options: {
-                        presets: [
-                            "@babel/preset-env",
-                            "@babel/preset-react",
-                            "@babel/preset-typescript",
-                        ],
-                    },
-                },
-            },
+                loader: "babel-loader"                
+            }
         ],
     },
     plugins: [
