@@ -28,7 +28,7 @@ const htmlPlugins = pages.map((page) => {
     return new HtmlWebpackPlugin({
         template: `./src/pages/${page}.html`,
         filename: `${page}.html`,
-        excludeChunks: ["main"]
+        chunks: [page]
     })
 });
 
@@ -43,7 +43,9 @@ const common: Configuration = {
     optimization: {
         splitChunks: {
             chunks(chunk) {
-                // exclude `main`
+                // Exclude `main` as it should contain personal copy of shared dependencies to run independently
+                // For v9.1+ you can use web resource dependencies to load `shared` with `main` automatically:
+                // https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/web-resource-dependencies?view=op-9-1
                 return chunk.name !== "main";
             },
             name: "shared"
